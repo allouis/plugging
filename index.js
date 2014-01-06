@@ -1,12 +1,10 @@
-var getPlugins = require('./lib/getPlugins');
+var getPlugins = require('./lib/getPlugins'),
+    setupConfig = require('./lib/setupConfig');
 
 function plugging(){
     var originalOptions = Array.apply([], arguments);
-    var config = {
-        pluginsDirectory: 'pluggings',
-        init: 'init'
-    };
 
+    var config = setupConfig();
     var plugins = getPlugins(config); 
 
     function start() {
