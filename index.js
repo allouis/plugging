@@ -11,7 +11,7 @@ function plugging(){
         var extraOptions = Array.apply([], arguments); 
         var allOptions = originalOptions.concat(extraOptions);
         plugins.forEach(function(plugin){
-            plugin[config.init].apply(plugin, allOptions); 
+            plugin[config.startPlugin].apply(plugin, allOptions); 
         });
     }
 
