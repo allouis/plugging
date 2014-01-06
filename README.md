@@ -38,7 +38,7 @@ then to use
   var server = http.startServer(app);
   
   server.listen(app.get('port'), function () {
-    plugging.start(app);
+    plugging.start();
   })
 
 ```
