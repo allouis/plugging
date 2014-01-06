@@ -1,5 +1,5 @@
 {
-  "name": "pluggable",
+  "name": "plugging",
   "version": "0.0.0",
   "description": "Easy plugin architecture for node",
   "main": "index.js",
@@ -8,17 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/allouis/pluggable.git"
+    "url": "https://github.com/allouis/plugging.git"
   },
   "keywords": [
     "plugin",
-    "pluggable",
-    "plugins",
-    "architecture"
+    "plugging",
+    "plugins"
   ],
   "author": "Fabien O'Carroll",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/allouis/pluggable/issues"
+    "url": "https://github.com/allouis/plugging/issues"
   }
 }
