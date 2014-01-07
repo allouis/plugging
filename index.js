@@ -1,11 +1,11 @@
 var getPlugins = require('./lib/getPlugins'),
     setupConfig = require('./lib/setupConfig');
 
-function plugging(){
+function plugging(options){
     var originalOptions = Array.apply([], arguments);
 
     var config = setupConfig();
-    var plugins = getPlugins(config); 
+    var plugins = getPlugins(config, options); 
 
     function start() {
         var extraOptions = Array.apply([], arguments); 
