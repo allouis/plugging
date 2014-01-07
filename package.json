@@ -1,6 +1,6 @@
 {
   "name": "plugging",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Easy plugin architecture for node",
   "main": "index.js",
   "scripts": {
