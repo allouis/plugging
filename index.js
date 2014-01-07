@@ -1,23 +1,21 @@
 var getPlugins = require('./lib/getPlugins'),
     setupConfig = require('./lib/setupConfig');
 
-function plugging(options){
-    var originalOptions = Array.apply([], arguments);
+function plugging(pluginsDir){
 
-    var config = setupConfig();
-    var plugins = getPlugins(config, options); 
+  var config = setupConfig(pluginsDir);
+  var plugins = getPlugins(config); 
 
-    function start() {
-        var extraOptions = Array.apply([], arguments); 
-        var allOptions = originalOptions.concat(extraOptions);
-        plugins.forEach(function(plugin){
-            plugin[config.startPlugin].apply(plugin, allOptions); 
-        });
-    }
+  function start() {
+    var options = Array.apply([], arguments); 
+    plugins.forEach(function(plugin){
+      plugin.apply(plugin, options); 
+    });
+  }
 
-    return {
-        start: start
-    };
+  return {
+    start: start
+  };
 
 }
 
