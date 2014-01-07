@@ -18,11 +18,9 @@ function setUpCustomRoutes (app) {
   app.get('/custom/route', myHandler);
 }
 
-module.exports = {
-  init: function (app) {
-    // Start the plugin e.g 
-    setupCustomRoutes(app);
-  }
+module.exports = function(options) {
+  setUpCustomRoutes(options.app);
+  doSomething(options.port);
 }
 
 ```
@@ -32,13 +30,16 @@ then to use
 ```javascript
 
   var app = require('express')(),
-      plugging = require('plugging')(app),
+      plugging = require('plugging')(__dirname + '/pluginsFolder'),
       http = require('http');
       
   var server = http.startServer(app);
   
   server.listen(app.get('port'), function () {
-    plugging.start();
+    plugging.start({
+      app: app,
+      port: app.get('port')
+    });
   })
 
 ```
