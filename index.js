@@ -3,14 +3,22 @@ var getPlugins = require('./lib/getPlugins'),
 
 function plugging(pluginsDir){
 
-  var config = setupConfig(pluginsDir);
-  var plugins = getPlugins(config); 
+  var options = Array.prototype.slice.call(arguments, 1);
+  var config = setupConfig();
+  var plugins = getPlugins(pluginsDir); 
 
   function start() {
     var options = Array.apply([], arguments); 
     plugins.forEach(function(plugin){
-      plugin.apply(plugin, options); 
+      var pluginStart = plugin.constructor === Function ?
+        plugin : plugin[config.init];
+      pluginStart.apply(plugin, options);
     });
+  }
+
+  if (options[0]) {
+    start.apply(null, options);
+    return;
   }
 
   return {
