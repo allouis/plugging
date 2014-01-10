@@ -3,8 +3,7 @@ plugging
 
 Easy plugin architecture for node.js
 
-plugin style
-============
+## Example plugin
 
 ```javascript
 
@@ -25,7 +24,7 @@ module.exports = function(options) {
 
 ```
 
-then to use
+## To initialize
 
 ```javascript
 
